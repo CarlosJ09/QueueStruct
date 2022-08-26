@@ -1,4 +1,4 @@
-/*
+/* 
 Estructura de Colas (Queues) Fecha: 26/8/2022
 
 Creado por:
@@ -8,7 +8,7 @@ Adam Guerrero 1106129
 Victor
 Alejandro Lara
 Mauricio
-*/
+ */
 
 #include <iostream> //cin & cout
 #include <curses.h> //getch()
