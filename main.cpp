@@ -1,4 +1,4 @@
-/* 
+/*
 Estructura de Colas (Queues) Fecha: 26/8/2022
 
 Creado por:
@@ -38,46 +38,58 @@ int main()
 
 void Menu()
 {
+
+    Queue *head = NULL;
+    Queue *end = NULL;
+
+    int dato;
     int menu = 0;
     int vExit;
 
-    while (menu != 4)
+    while (menu != 5)
     {
         cout << "Elija una opcion: \n";
         cin >> menu;
         switch (menu)
         {
         case 1: // Insertar datos
-            Queue *head = NULL;
-            Queue *end = NULL;
-
-            int n; // Elemento a introducir por el usuario.
-
+            system("clear");
             cout << "Digite el numero que desea ingresar: ";
-            cin >> n;
-            Enqueue(head, end, n);
+            cin >> dato;
+
+            Enqueue(head, end, dato);
 
             break;
-        case 2:
-            Queue *cola;
-            int prio;
-            int elem;
-            cin >> elem;
+        case 2: // Insertar datos con prioridad en la cola.
+            system("clear");
+            int prior;
 
-            EnqueuePrio(cola, prio, elem);
+            cout << "Digite el numero que desea insertar \n"
+                 << endl;
+            cin >> dato;
+            cout << "Digite la prioridad del 1 al 16 \n"
+                 << endl;
+            cin >> prior;
+
+            EnqueuePrio(head, prior, dato);
+            cout << "Elemento " << dato << " insertado en la cola correctamente con prioridad " << prior << endl;
             break;
         case 3: // Eliminando un elemento.
-            Queue *head;
-            Queue *end;
+            system("clear");
+            cout << "Presione cualquier tecla para eliminar el elemento en frente de la cola" << endl;
+            cin >> dato;
 
-            int n;
-
-            Dequeue(head, end, n);
+            Dequeue(head, end, dato);
             break;
-        case 4:
+        case 4: // Desplegando la cola.
+            Display();
+            break;
+        case 5:
+            system("clear");
             Exit();
             break;
         default:
+            system("clear");
             cout << "Por favor elija una opcion valida \n"
                  << endl;
             cout << "Elija una opcion: \n";
@@ -104,7 +116,7 @@ void Enqueue(Queue *&head, Queue *&end, int &n)
 
     end = nuevo;
 
-    cout << "Elemento " << n << " insertado correctamente!" << endl;
+    cout << "\nElemento " << n << " insertado correctamente!" << endl;
 }
 
 bool EnqueuePrio(Queue *&cola, int prior, int data)
@@ -162,6 +174,11 @@ void Dequeue(Queue *&head, Queue *&end, int &n)
 bool IsEmpty(Queue *&head)
 {
     return (head == NULL) ? true : false;
+}
+
+void Display()
+{
+    cout << "Hola";
 }
 
 void Exit()
